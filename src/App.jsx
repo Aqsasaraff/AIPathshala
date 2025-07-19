@@ -6,6 +6,7 @@ import WhyChooseUs from "./Components/WhyChooseUs";
 import MissionVision from "./Components/MissionVision";
 import ExploreAITools from "./Components/ExploreAITools";
 import WatchAIInAction from "./Components/WatchAIInAction";
+import { AINewsSection } from "./Components/AI News Section";
 import { Routes, Route } from "react-router-dom";
 import VideosPage from "./Components/WatchAIInAction/VideosPage";
 import VideoDetail from "./Components/WatchAIInAction/VideoDetail";
@@ -27,6 +28,7 @@ function App() {
             <MissionVision />
             <ExploreAITools />
             <WatchAIInAction />
+            <AINewsSection />
             <FAQ />
             <Footer />
           </>

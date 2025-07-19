@@ -171,7 +171,7 @@ const ExploreAITools = () => {
   }, []);
 
   return (
-    <div id="tools" className="bg-black rounded-2xl p-8 max-w-5xl mx-auto my-8 shadow-lg">
+    <div id="tools" className="bg-black rounded-2xl p-4 sm:p-8 max-w-5xl mx-auto my-8 shadow-lg">
       <h2 className="text-white text-2xl sm:text-3xl font-semibold text-center mb-8">Explore AI Tools You’ll Learn</h2>
       <div className="flex gap-4 justify-center mb-8 flex-wrap bg-black p-4 rounded-xl">
         {tabs.map((tab, idx) => (

@@ -91,21 +91,13 @@ const WatchAIInAction = () => {
   }, []);
 
   return (
-    <section id="video" className="w-full bg-black text-white py-16 px-4 md:px-0 flex flex-col items-center">
-      <div ref={headingRef} className="max-w-4xl mx-auto text-center mb-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          Watch <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">AI in Action</span>
-        </h2>
-        <p className="text-lg md:text-xl text-gray-300">
-          Learn from comprehensive video tutorials, live demonstrations, and expert insights that will help you master AI tools and stay ahead of the curve.
-        </p>
-      </div>
-      <div className="w-full max-w-5xl flex flex-col gap-8">
+    <section id="video" className="bg-black text-white py-12 md:py-16 px-4 md:px-8 mx-4 sm:mx-6 md:mx-8 lg:mx-16 flex flex-col items-center min-h-screen">
+      <div className="max-w-5xl flex flex-col gap-6 md:gap-8">
         {/* Featured Video - Custom Layout */}
         <div ref={featuredRef} className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-1 shadow-lg">
           <div className="flex flex-col md:flex-row gap-0 md:gap-6 bg-black rounded-2xl overflow-hidden">
             {/* Video with Featured badge */}
-            <div className="relative md:w-2/3 w-full h-56 md:h-72 flex items-center justify-center">
+            <div className="relative md:w-2/3 w-full h-48 sm:h-56 md:h-72 flex items-center justify-center">
               <video
                 src="/v1.mp4"
                 controls
@@ -118,33 +110,25 @@ const WatchAIInAction = () => {
               <span className="absolute bottom-3 right-3 bg-black/70 text-xs px-2 py-1 rounded">{videos[0].duration}</span>
             </div>
             {/* Info */}
-            <div className="flex flex-col justify-center p-6 md:w-1/3 w-full">
+            <div className="flex flex-col justify-center p-4 sm:p-6 md:w-1/3 w-full">
               <span className="bg-gray-700 text-xs px-2 py-1 rounded mb-2 w-max">{videos[0].tag}</span>
-              <h3 className="text-2xl font-bold mb-2">{videos[0].title}</h3>
-              <p className="text-gray-300 mb-4">{videos[0].description}</p>
-              <div className="flex items-center text-gray-400 text-sm mb-4 gap-4">
+              <h3 className="text-xl sm:text-2xl font-bold mb-2">{videos[0].title}</h3>
+              <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">{videos[0].description}</p>
+              <div className="flex items-center text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 gap-3 sm:gap-4">
                 <span>👁 {videos[0].views}</span>
                 <span>⏱ {videos[0].duration}</span>
               </div>
-              <button className="bg-gradient-to-r from-purple-500 to-pink-600 text-white font-semibold px-6 py-2 rounded-lg shadow hover:scale-105 transition-transform" onClick={() => navigate(`/videos/${videos[0].id}`)}>
+              <button className="bg-gradient-to-r from-purple-500 to-pink-600 text-white font-semibold px-4 sm:px-6 py-2 rounded-lg shadow hover:scale-105 transition-transform text-sm sm:text-base" onClick={() => navigate(`/videos/${videos[0].id}`)}>
                 Watch Now
               </button>
             </div>
           </div>
         </div>
         {/* Video Grid */}
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {videos.slice(1).map((video, idx) => (
             <VideoCard key={video.id} video={video} idx={idx + 1} />
           ))}
-        </div>
-        <div className="flex justify-center mt-6">
-          <button
-            className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-600 text-white font-semibold shadow hover:scale-105 transition-transform"
-            onClick={() => navigate('/videos')}
-          >
-            View All Videos
-          </button>
         </div>
       </div>
     </section>

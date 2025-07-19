@@ -48,83 +48,85 @@ const DividerRocketIcon = ({ className = "" }) => (
 );
 
 const MissionVision = () => (
-  <div
-    className="relative bg-gradient-to-br from-[#10131a] to-[#181c2a] rounded-2xl shadow-2xl mx-auto my-16 p-8 max-w-md min-h-[500px] flex flex-col justify-between animate-fadein md:max-w-4xl md:min-h-[400px] md:p-16"
-    tabIndex={0}
-    aria-label="Mission and Vision"
-  >
-    {/* Optional background pattern */}
+  <div className="flex justify-center items-center w-full">
     <div
-      className="absolute inset-0 z-0 pointer-events-none opacity-10"
-      style={{
-        background:
-          "radial-gradient(circle at 30% 30%, #a78bfa 0%, transparent 60%)",
-      }}
-    />
-    <div className="flex flex-col gap-10 h-full justify-between relative z-10">
-      {/* Mission */}
-      <div>
-        <div className="flex items-center gap-3 mb-2 group">
-          <span className="drop-shadow-[0_2px_8px_rgba(255,214,0,0.4)] md:w-16 md:h-16 transition-transform group-hover:scale-110 motion-reduce:transform-none">
-            <RocketIcon />
-          </span>
-          <h2
-            className="text-4xl md:text-5xl font-extrabold text-purple-400 leading-tight tracking-wider"
-            style={{ letterSpacing: 2 }}
-          >
-            OUR
-            <br />
-            MISSION
-          </h2>
+      className="relative bg-gradient-to-br from-[#10131a] to-[#181c2a] rounded-2xl shadow-2xl mx-4 sm:mx-6 md:mx-8 lg:mx-16 my-8 md:my-16 p-4 sm:p-6 md:p-16 px-4 sm:px-6 md:px-8 lg:px-16 max-w-md min-h-[400px] md:min-h-[500px] flex flex-col justify-between animate-fadein md:max-w-4xl md:min-h-[400px]"
+      tabIndex={0}
+      aria-label="Mission and Vision"
+    >
+      {/* Optional background pattern */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none opacity-10"
+        style={{
+          background:
+            "radial-gradient(circle at 30% 30%, #a78bfa 0%, transparent 60%)",
+        }}
+      />
+      <div className="flex flex-col gap-10 h-full justify-between relative z-10">
+        {/* Mission */}
+        <div>
+          <div className="flex items-center gap-3 mb-2 group">
+            <span className="drop-shadow-[0_2px_8px_rgba(255,214,0,0.4)] md:w-16 md:h-16 transition-transform group-hover:scale-110 motion-reduce:transform-none">
+              <RocketIcon />
+            </span>
+            <h2
+              className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl font-extrabold text-purple-400 leading-tight tracking-wider"
+              style={{ letterSpacing: 2 }}
+            >
+              OUR
+              <br />
+              MISSION
+            </h2>
+          </div>
+          <p className="text-gray-100 text-base md:text-lg mt-2 max-w-xs md:max-w-md">
+            We help students, indie developers, and early-stage founders learn and
+            apply AI tools without the overwhelm.
+          </p>
         </div>
-        <p className="text-gray-100 text-base md:text-lg mt-2 max-w-xs md:max-w-md">
-          We help students, indie developers, and early-stage founders learn and
-          apply AI tools without the overwhelm.
-        </p>
-      </div>
-      {/* Divider with rocket icon */}
-      <div className="w-full flex justify-center my-2 relative">
-        <div className="h-[2px] w-2/3 bg-gradient-to-r from-purple-400/30 via-gray-600/10 to-yellow-300/30 rounded-full" />
-        <span
-          className="absolute -top-4 left-1/2 -translate-x-1/2"
-          aria-hidden="true"
-        >
-          <DividerRocketIcon />
-        </span>
-      </div>
-      {/* Vision */}
-      <div className="self-end text-right">
-        <div className="flex items-center gap-3 mb-2 justify-end group">
-          <h2
-            className="text-4xl md:text-5xl font-extrabold text-yellow-300 leading-tight tracking-wider"
-            style={{ letterSpacing: 2 }}
+        {/* Divider with rocket icon */}
+        <div className="w-full flex justify-center my-2 relative">
+          <div className="h-[2px] w-2/3 bg-gradient-to-r from-purple-400/30 via-gray-600/10 to-yellow-300/30 rounded-full" />
+          <span
+            className="absolute -top-4 left-1/2 -translate-x-1/2"
+            aria-hidden="true"
           >
-            OUR
-            <br />
-            VISION
-          </h2>
-          <span className="drop-shadow-[0_2px_8px_rgba(255,214,0,0.4)] md:w-16 md:h-16 transition-transform group-hover:scale-110 motion-reduce:transform-none">
-            <NewBulbIcon />
+            <DividerRocketIcon />
           </span>
         </div>
-        <p className="text-gray-100 text-base md:text-lg mt-2 max-w-xs md:max-w-md">
-          To simplify AI into real-world results, enabling you to build faster,
-          think smarter, and grow your potential.
-        </p>
+        {/* Vision */}
+        <div className="self-end text-right">
+          <div className="flex items-center gap-3 mb-2 justify-end group">
+            <h2
+              className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl font-extrabold text-yellow-300 leading-tight tracking-wider"
+              style={{ letterSpacing: 2 }}
+            >
+              OUR
+              <br />
+              VISION
+            </h2>
+            <span className="drop-shadow-[0_2px_8px_rgba(255,214,0,0.4)] md:w-16 md:h-16 transition-transform group-hover:scale-110 motion-reduce:transform-none">
+              <NewBulbIcon />
+            </span>
+          </div>
+          <p className="text-gray-100 text-base md:text-lg mt-2 max-w-xs md:max-w-md">
+            To simplify AI into real-world results, enabling you to build faster,
+            think smarter, and grow your potential.
+          </p>
+        </div>
       </div>
+      {/* Fade-in animation */}
+      <style>
+        {`
+          .animate-fadein {
+            animation: fadeinup 1s cubic-bezier(.39,.575,.565,1.000) both;
+          }
+          @keyframes fadeinup {
+            0% { opacity: 0; transform: translateY(40px);}
+            100% { opacity: 1; transform: none;}
+          }
+        `}
+      </style>
     </div>
-    {/* Fade-in animation */}
-    <style>
-      {`
-        .animate-fadein {
-          animation: fadeinup 1s cubic-bezier(.39,.575,.565,1.000) both;
-        }
-        @keyframes fadeinup {
-          0% { opacity: 0; transform: translateY(40px);}
-          100% { opacity: 1; transform: none;}
-        }
-      `}
-    </style>
   </div>
 );
 
