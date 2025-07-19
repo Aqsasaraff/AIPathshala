@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaLock, FaBolt } from "react-icons/fa";
 import logo from "../assets/logo.png";
+import imageBg from "../assets/image.png";
 import laptopImg from "../assets/laptop.png";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -23,7 +24,7 @@ const navLinks = [
   { name: "About Us", href: "#about" },
   { name: "Tools", href: "#tools" },
   { name: "Video", href: "#video" },
-  { name: "News", href: "#news" },
+  { name: "AI News", href: "#news" }, // Added AI News link
   { name: "FAQs", href: "#faqs" },
 ];
 
@@ -119,22 +120,14 @@ const Header = () => {
         </div>
       </nav>
       {/* HERO SECTION */}
-      <header className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden pt-32 md:pt-45 font-sans" style={{
-        background: `
-          radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-          radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%)
-        `,
-        backgroundSize: '100% 100%',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}>
+      <header className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden pt-32 md:pt-45 font-sans px-4 md:px-0">
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-black via-yellow-100/20 to-yellow-200/10 -z-10"></div>
         {/* Hero Content */}
-        <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center md:justify-between w-full px-5 md:px-8 py-8 md:py-16">
+        <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center md:justify-between w-full px-2 md:px-4 py-10 md:py-16">
           {/* Left: Text */}
           <div className="flex-1 text-left text-white max-w-xl w-full mb-8 md:mb-0">
             {/* Main Heading */}
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight mb-2 text-white">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight mb-2 text-white">
               Learn &amp; Apply AI Tools
               <br />
               Without the&nbsp;
@@ -166,14 +159,12 @@ const Header = () => {
               <button className="flex items-center gap-2 bg-yellow-400 text-black px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base rounded font-bold shadow hover:bg-yellow-300 transition">
                 <FaLock color="black" /> Watch a 60-Second Demo
               </button>
-              <button
-                className="flex items-center gap-2 bg-gray-800 text-white px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base md:text-lg rounded font-bold shadow hover:bg-gray-700 transition border border-gray-600"
+              <button className="flex items-center gap-2 bg-gray-800 text-white px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base rounded font-bold shadow hover:bg-gray-700 transition border border-gray-600"
                 onClick={() => {
                   const section = document.getElementById('tools');
                   if (section) {
                     section.scrollIntoView({ behavior: 'smooth' });
                   }
-                  setMenuOpen && setMenuOpen(false);
                 }}
               >
                 <FaBolt /> Try a Tool Now

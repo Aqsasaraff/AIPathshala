@@ -218,7 +218,7 @@ const AINewsSection = () => {
       </div>
       <div className="relative w-full flex items-center justify-center overflow-x-hidden" style={{ paddingTop: 16, paddingBottom: 16 }}>
         <button
-          className="hidden sm:flex absolute left-2 z-10 bg-black/70 hover:bg-black text-yellow-300 rounded-full p-2 shadow-lg"
+          className="hidden sm:flex absolute left-2 z-10 bg-black/70 hover:bg-black text-yellow-300 rounded-full p-4 shadow-lg"
           onClick={goToPrevious}
           aria-label="Scroll left"
         >
@@ -254,7 +254,7 @@ const AINewsSection = () => {
           </div>
         </div>
         <button
-          className="hidden sm:flex absolute right-2 z-10 bg-black/70 hover:bg-black text-yellow-300 rounded-full p-2 shadow-lg"
+          className="hidden sm:flex absolute right-2 z-10 bg-black/70 hover:bg-black text-yellow-300 rounded-full p-4 shadow-lg"
           onClick={goToNext}
           aria-label="Scroll right"
         >
@@ -266,7 +266,7 @@ const AINewsSection = () => {
         {newsData.map((_, idx) => (
           <button
             key={idx}
-            className={`w-1.5 h-1.5 rounded-sm ${activeIdx === idx ? "bg-yellow-300" : "bg-gray-600"}`}
+            className={`w-1 h-1 rounded-sm ${activeIdx === idx ? "bg-yellow-300" : "bg-gray-600"}`}
             onClick={() => {
               setDirection(idx > activeIdx ? 'right' : 'left');
               handleUserNav(idx);

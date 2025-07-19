@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FaChevronDown, FaTools, FaQuestionCircle, FaUserFriends, FaLightbulb } from "react-icons/fa";
 
 const faqs = [
@@ -10,12 +10,32 @@ const faqs = [
 
 const FAQs = () => {
   const [open, setOpen] = useState(null);
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    el.classList.add("opacity-0", "translate-y-6");
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            el.classList.add("animate-fadeinup");
+            el.classList.remove("opacity-0", "translate-y-6");
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="faqs" className="bg-gray-950 text-gray-100 py-12 md:py-16 px-3 sm:px-4 mx-4 sm:mx-6 md:mx-8 lg:mx-16">
+    <section id="faqs" ref={sectionRef} className="bg-gray-950 text-gray-100 py-16 px-4 md:mt-16">
       <div className="max-w-2xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-10 text-yellow-400 tracking-tight">Frequently Asked Questions</h2>
-        <div className="space-y-3 sm:space-y-4">
+        <h2 className="text-3xl font-bold text-center mb-10 text-yellow-400 tracking-tight">Frequently Asked Questions</h2>
+        <div className="space-y-4">
           {faqs.map((faq, idx) => (
             <div
               key={idx}
@@ -26,14 +46,14 @@ const FAQs = () => {
               }`}
             >
               <button
-                className="w-full flex justify-between items-center px-4 sm:px-6 py-4 sm:py-5 text-left focus:outline-none"
+                className="w-full flex justify-between items-center px-6 py-5 text-left focus:outline-none"
                 onClick={() => setOpen(open === idx ? null : idx)}
                 aria-expanded={open === idx}
                 aria-controls={`faq-answer-${idx}`}
               >
                 <span className="flex items-center">
                   {faq.icon}
-                  <span className={`text-base sm:text-lg font-medium ${open === idx ? "text-yellow-300" : ""}`}>{faq.q}</span>
+                  <span className={`text-lg font-medium ${open === idx ? "text-yellow-300" : ""}`}>{faq.q}</span>
                 </span>
                 <FaChevronDown
                   className={`ml-2 text-yellow-400 transition-transform duration-300 ${
@@ -44,11 +64,17 @@ const FAQs = () => {
               <div
                 id={`faq-answer-${idx}`}
                 className={`overflow-hidden transition-all duration-500 ${
-                  open === idx ? "max-h-40 py-3 sm:py-4 px-4 sm:px-6" : "max-h-0 py-0 px-4 sm:px-6"
+                  open === idx ? "max-h-40 py-4 px-6" : "max-h-0 py-0 px-6"
                 }`}
                 style={{ transitionProperty: "max-height, padding" }}
               >
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{faq.a}</p>
+                {open === idx && (
+                  <div className="w-full">
+                    <div className="faq-animate text-left text-base text-yellow-100 font-semibold">
+                      {faq.a}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}

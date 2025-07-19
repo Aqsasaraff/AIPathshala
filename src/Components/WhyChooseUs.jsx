@@ -82,7 +82,7 @@ const WhyChooseUs = () => {
     <div
       id="about"
       ref={sectionRef}
-      className="bg-[#10131a] text-white rounded-2xl p-5 sm:p-10 max-w-3xl mx-auto my-8 shadow-lg"
+      className="bg-[#10131a] text-white rounded-2xl p-10 max-w-3xl mx-auto mt-0 md:mt-8 mb-8 shadow-lg"
     >
       <h2 className="text-yellow-300 text-4xl font-bold text-center mb-5 tracking-wide">WHY CHOOSE US</h2>
       <p className="text-gray-300 text-center mb-10 text-base leading-7">
